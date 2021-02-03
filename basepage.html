@@ -4,11 +4,12 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="height:1500px">
 <style type="text/css"> 
         h1 { 
             color:rgba(0, 128, 128, 0.979); 
@@ -46,14 +47,22 @@
 </style> 
 </head> 
 
-<div id="first_container" class="container">
-</div>  
+<div class="container-fluid fixed-top"><br>
+        <div class="row">
+            <div id="first_container" class="col-sm-3"></div>
+            <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('JEF')">JEF</button></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+        </div> 
+</div>
 
-<div class="container">
-  <h1> Round Buttons, Nice</h1>
-    <button  id="JEF" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('JEF')">JEF</button>
-    <button id="MKE" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('MKE')">MKE</button>
-    <button id="MME" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('MME')">MME</button>         
+<div class="container-fluid"><br>
+    <div class="row">
+    <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('JEF')">JEF</button></div>
+    <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('MKE')">MKE</button></div>
+    <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('MME')">MME</button></div>
+    <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-xl" onclick="myFunction('MME')">SF</button></div>
+  </div> 
 </div>
 
 <script>
