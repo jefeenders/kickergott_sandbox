@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  .list-group li{
+  border: 0 none;
+}
+  .btn-circle.btn-sm { 
+        width: 30px; 
+        height: 30px; 
+        padding: 2px 0px; 
+        border-radius: 15px; 
+        font-size: 8px; 
+        text-align: center; 
+        } 
+    .btn-circle.btn-md { 
+        width: 50px; 
+        height: 50px; 
+        padding: 7px 10px; 
+        border-radius: 25px; 
+        font-size: 13px; 
+        font-weight: bolder;
+        text-align: center; 
+    } 
+    .btn-circle.btn-xl { 
+        width: 70px; 
+        height: 70px; 
+        padding: 10px 16px; 
+        border-radius: 35px; 
+        font-size: 20px; 
+        color:rgb(253, 253, 253);
+        text-align: center; 
+    } 
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>Wie soll gespielt werden?</h1>
+  <p>Klicke auf eine der möglichen Optionen!</p> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Spieler</a>    
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Eintragen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ergebnisse</a>
+      </li>    
+      <li class="nav-item">
+        <a class="nav-link" href="#">aktuelle Tabelle</a>
+      </li>    
+      <li class="nav-item">
+        <a class="nav-link" href="#">ewige Statistik</a>
+      </li>     
+      <li class="nav-item">
+        <a class="nav-link" href="#">Kickergötter</a>
+      </li>     
+    </ul>
+  </div>  
+</nav>
+
+<div class="container-fluid" style="margin-top:15px"> 
+  <div class="row justify-content-center">    
+    <div class="col-sm-3 d-none d-lg-block">
+      <img src="banner_left.png" alt="Simply Easy Learning" width="150"
+      height="397">
+    </div>
+
+    <div class="col-sm-6 d-flex justify-content-center">
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <button type="button" class="btn btn-primary">Aktuell Fair</button>
+        </li>
+        <li class="list-group-item">
+            <button type="button" class="btn btn-primary">Fair</button>
+        </li>
+        <li class="list-group-item">
+            <button type="button" class="btn btn-primary">Unfair</button>
+        </li>
+        <li class="list-group-item">
+            <button type="button" class="btn btn-primary">Zufällig</button>
+        </li>
+        <li class="list-group-item">
+            <button type="button" class="btn btn-primary">Zurück</button>
+        </li>
+        </ul> 
+    </div>
+
+
+    <div class="col-sm-3 d-none d-lg-block">
+      <img src="banner_right.png" alt="Simply Easy Learning" width="150"
+      height="236">
+    </div>
+  </div>
+</div>
+
+<div class="container text-center bg-dark  text-white fixed-bottom" style="margin-bottom:0px">
+  <p>Gewählte Spieler</p>
+  <div class="row justify-content-center">
+    <div class="btn-group btn-group-sm">
+      <div class="col-sm-3"><button  id="player1" type="button" class="btn btn-primary btn-circle btn-md" onclick="removePlayer(0)">JEF </button></div>
+      <div class="col-sm-3"><button id="player2" type="button" class="btn btn-primary btn-circle btn-md" onclick="removePlayer(1)">MKE</button></div>
+      <div class="col-sm-3"><button id="player3" type="button"  class="btn btn-primary btn-circle btn-md" onclick="removePlayer(2)">MME</button></div>
+      <div class="col-sm-3"><button id="player4" type="button"  class="btn btn-primary btn-circle btn-md" onclick="removePlayer(3)">SF</button></div>
+    </div> 
+  </div> 
+</div>
+
+<script>
+  var hidden = false;
+  var player_number = 0;
+  var selected_names = [];
+
+  function playerSelected(name){
+    if (player_number < 4 && !selected_names.includes(name))
+    {
+      player_number = player_number + 1;
+      id = "player" + player_number;
+      document.getElementById(id).style.visibility = "visible";
+      document.getElementById(id).innerText = name;
+      selected_names.push(name);
+    }      
+  }
+
+  function removePlayer(index){
+    var players = [1,2,3,4];
+    var names = [];
+    players.splice(index,1);
+    removed_player_id = "player" + (index + 1)
+    const position = selected_names.indexOf(document.getElementById(removed_player_id).innerText);
+    if (position > -1) 
+    {
+      selected_names.splice(position, 1);
+    }
+    var id;
+    for (id in players){
+      current_player_id = "player" + players[id]
+      names.push(document.getElementById(current_player_id).innerText);
+    }
+    document.getElementById("player" + player_number).style.visibility = "hidden";
+    player_number = player_number - 1;
+    document.getElementById("player1").innerText = names[0];
+    document.getElementById("player2").innerText = names[1];
+    document.getElementById("player3").innerText = names[2];
+
+  }
+</script>
+</body>
+</html>
