@@ -33,6 +33,16 @@
         font-weight: bolder;
         text-align: center; 
     } 
+    .btn-circle.btn-md-player { 
+        width: 50px; 
+        height: 50px; 
+        padding: 7px 10px; 
+        border-radius: 25px; 
+        font-size: 13px; 
+        font-weight: bolder;
+        text-align: center; 
+        visibility: hidden;
+    } 
     .btn-circle.btn-xl { 
         width: 70px; 
         height: 70px; 
@@ -92,26 +102,26 @@
         <ul class="list-group">
           <li class="list-group-item">
             <div class="btn-group btn-group-sm">
-              <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('JEF')">JEF</button></div>
-              <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MKE')">MKE</button></div>
-              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">MME</button></div>
-              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">SF</button></div>
+              <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('JEF')">JEF</button></div>
+              <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('MKE')">MKE</button></div>
+              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('MME')">MME</button></div>
+              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('SF')">SF</button></div>
             </div> 
           </li>
           <li class="list-group-item">
             <div class="btn-group btn-group-sm">
-              <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('JEF')">JEF</button></div>
-              <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MKE')">MKE</button></div>
-              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">MME</button></div>
-              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">SF</button></div>
+              <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('JEF')">JEF</button></div>
+              <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('MKE')">MKE</button></div>
+              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('MME')">MME</button></div>
+              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('SF')">SF</button></div>
             </div> 
           </li>
           <li class="list-group-item">
             <div class="btn-group btn-group-sm">
-              <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('JEF')">JEF</button></div>
-              <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MKE')">MKE</button></div>
-              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">MME</button></div>
-              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">SF</button></div>
+              <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('JEF')">JEF</button></div>
+              <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('MKE')">MKE</button></div>
+              <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('SF')">MME</button></div>
+              <div class="col-sm-3"><button id="AVO" type="button" class="btn btn-primary btn-circle btn-md" onclick="playerSelected('AVO')">AVO</button></div>
             </div> 
           </li>
         </ul> 
@@ -131,13 +141,52 @@
   <p>Gewählte Spieler</p>
   <div class="row justify-content-center">
     <div class="btn-group btn-group-sm">
-      <div class="col-sm-3"><button  id="JEF" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('JEF')">JEF</button></div>
-      <div class="col-sm-3"><button id="MKE" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MKE')">MKE</button></div>
-      <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">MME</button></div>
-      <div class="col-sm-3"><button id="MME" type="button" class="btn btn-primary btn-circle btn-md" onclick="myFunction('MME')">SF</button></div>
+      <div class="col-sm-3"><button  id="player1" type="button" class="btn btn-primary btn-circle btn-md-player" onclick="removePlayer(0)">JEF </button></div>
+      <div class="col-sm-3"><button id="player2" type="button" class="btn btn-primary btn-circle btn-md-player" onclick="removePlayer(1)">MKE</button></div>
+      <div class="col-sm-3"><button id="player3" type="button"  class="btn btn-primary btn-circle btn-md-player" onclick="removePlayer(2)">MME</button></div>
+      <div class="col-sm-3"><button id="player4" type="button"  class="btn btn-primary btn-circle btn-md-player" onclick="removePlayer(3)">SF</button></div>
     </div> 
   </div> 
 </div>
 
+<script>
+  var hidden = false;
+  var player_number = 0;
+  var selected_names = [];
+
+  function playerSelected(name){
+    if (player_number < 4 && !selected_names.includes(name))
+    {
+      player_number = player_number + 1;
+      id = "player" + player_number;
+      document.getElementById(id).style.visibility = "visible";
+      document.getElementById(id).innerText = name;
+      selected_names.push(name);
+    }      
+  }
+
+  function removePlayer(index){
+    var players = [1,2,3,4];
+    var names = [];
+    players.splice(index,1);
+    removed_player_id = "player" + (index + 1)
+    const position = selected_names.indexOf(document.getElementById(removed_player_id).innerText);
+    if (position > -1) 
+    {
+      selected_names.splice(position, 1);
+    }
+    var id;
+    for (id in players){
+      current_player_id = "player" + players[id]
+      names.push(document.getElementById(current_player_id).innerText);
+    }
+    document.getElementById("player" + player_number).style.visibility = "hidden";
+    player_number = player_number - 1;
+    document.getElementById("player1").innerText = names[0];
+    document.getElementById("player2").innerText = names[1];
+    document.getElementById("player3").innerText = names[2];
+
+  }
+</script>
 </body>
 </html>
